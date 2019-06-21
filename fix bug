@@ -1,0 +1,55 @@
+#coder
+def pig_latin(word):
+
+	first_letter=word[0]
+
+	if first_letter in('aeiou'):
+		pig_word = word + 'ay'
+
+	else:
+		pig_word = word[1:] + first_letter + 'ay'
+
+	return pig_word
+
+
+	
+
+#decoder
+def pig_latin_decode(word):
+
+	last_letter=word[-3]
+
+	if last_letter in ('aeiou'):
+		pig_word_decoded = word[:-2]
+
+	else:
+		pig_word_decoded = last_letter + word[:-3]
+
+	return pig_word_decoded
+
+j = True
+i = True
+
+while j:
+    while i:
+        word = input("Enter a word: ")
+        print(pig_latin(word))
+        decode = input("Do you want to decode something enter Yes or No: ")
+        if decode.lower().startswith('y'):
+            i = False
+        else:
+            j = False
+            break
+
+    while not i:
+        code = input("Enter the code to be decoded: ")
+        print(pig_latin_decode(code))
+        ask = input("Do you want to decode something else or code something? type d if you want to decode and type c if you want to code.If you want to exit enter anything except d and c ")
+        if ask.lower().startswith('c'):
+            i = True
+        elif ask.lower().startswith('d'):
+            continue
+        else:
+            j = False
+            break
+    
